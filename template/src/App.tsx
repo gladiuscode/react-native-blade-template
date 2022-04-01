@@ -1,11 +1,13 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import MainStack from './navigation/stacks/main.stack';
 
 const App: React.FC = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center'}}>
-      <Text style={{textAlign: 'center'}}>BLADE TEMPLATE</Text>
-    </View>
+    <NavigationContainer>
+      <MainStack />
+    </NavigationContainer>
   );
 };
 
