@@ -2,13 +2,11 @@ import {useCallback, useEffect, useMemo, useState} from 'react';
 import {Appearance} from 'react-native';
 import {getColorsBy} from '../colors.styles';
 
-const defaultTheme = 'light';
+const defaultTheme = Appearance.getColorScheme() ?? 'light';
 
 export type DefaultColors = ReturnType<typeof useColors>['colors'];
 export const useColors = () => {
-  const [theme, setTheme] = useState(
-    Appearance.getColorScheme() ?? defaultTheme,
-  );
+  const [theme, setTheme] = useState(defaultTheme);
 
   // ** DATA ** //
   const colors = useMemo(() => getColorsBy(theme), [theme]);
