@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {DefaultColors} from './hooks/useColors';
+import {DefaultColors} from './hooks/useColors.hook';
 
 export type DefaultFonts = ReturnType<typeof getFontsBy>;
 

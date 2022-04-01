@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {useColors} from '../hooks/useColors';
+import {useColors} from '../hooks/useColors.hook';
 import {useWindowDimensions} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {StylesProviderValue} from './styles.types';
