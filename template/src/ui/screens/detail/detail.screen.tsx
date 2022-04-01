@@ -1,16 +1,17 @@
 import React, {useCallback} from 'react';
-import {Text, TextInput, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {
   MainStackScreenProps,
   Screens,
 } from '../../../navigation/navigation.types';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import styles from './detail.styles';
+import {useStyles} from '../../../styles/hooks/useStyles.hook';
+import detailStyles from './detail.styles';
 
 type Props = MainStackScreenProps<Screens.detail>;
 
 export const Detail: React.FC<Props> = ({navigation}) => {
-
+  const {styles} = useStyles(detailStyles);
   // ** CALLBACKS ** //
   const onPress = useCallback(() => navigation.goBack(), [navigation]);
 

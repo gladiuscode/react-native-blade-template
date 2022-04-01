@@ -1,16 +1,15 @@
 import {StyleSheet} from 'react-native';
+import {StylesBuilder} from '../../../styles/hooks/useStyles.hook';
 
-const styles = StyleSheet.create({
+const styles: StylesBuilder = ({colors, fonts}) =>
+  StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: colors.backgroundColor,
       justifyContent: 'center',
       alignItems: 'center',
     },
-    title: {
-      fontSize: 16,
-      color: 'black'
-    },
+    title: fonts.headingOne,
   });
 
 export default styles;
