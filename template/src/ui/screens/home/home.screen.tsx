@@ -7,10 +7,12 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useStyles} from '../../../styles/hooks/useStyles.hook';
 import homeStyles from './home.styles';
+import {useLocalization} from '../../../localization/hooks/useLocalization';
 
 type Props = MainStackScreenProps<Screens.home>;
 
 export const Home: React.FC<Props> = ({navigation}) => {
+  const {t} = useLocalization();
   const {styles} = useStyles(homeStyles);
 
   // ** CALLBACKS ** //
@@ -21,9 +23,11 @@ export const Home: React.FC<Props> = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={[styles.title, styles.marginBottom]}>Blade Template</Text>
+      <Text style={[styles.title, styles.marginBottom]}>
+        {t('react_native_template')}
+      </Text>
       <TouchableOpacity onPress={onPress}>
-        <Text style={styles.title}>Go to detail</Text>
+        <Text style={styles.title}>{t('go_to_detail')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
