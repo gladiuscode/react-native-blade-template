@@ -1,4 +1,4 @@
-import axios, {AxiosRequestConfig} from 'axios';
+import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 
 const instance = axios.create();
 
@@ -54,6 +54,34 @@ class ApiLayer<RequestData> {
       ...headers,
     };
     return this;
+  }
+
+  async run<ResponseData>() {
+    try {
+      const config = this.createConfig();
+      const response = await instance.request<
+        ResponseData,
+        AxiosResponse<ResponseData>,
+        RequestData
+      >(config);
+
+      if (!response.data) {
+        throw new Error('Something went wrong');
+      }
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  private createConfig(): AxiosRequestConfig {
+    return {
+      baseURL: this.baseURL,
+      url: this.url,
+      method: this.method,
+      data: this.data,
+      headers: this.headers,
+    };
   }
 }
 
