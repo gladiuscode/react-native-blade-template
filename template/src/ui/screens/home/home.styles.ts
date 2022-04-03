@@ -14,8 +14,9 @@ const styles = ({colors, fonts}: StylesProviderValue) =>
       marginBottom: 8,
     },
     logo: {
-      width: 80,
+      height: 80,
       resizeMode: 'contain',
+      marginBottom: 12,
     },
   });
 
