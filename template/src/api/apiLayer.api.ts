@@ -56,6 +56,15 @@ class ApiLayer<RequestData> {
     return this;
   }
 
+  setToken(token: string) {
+    const baseHeaders = this.headers ?? {};
+    this.headers = {
+      ...baseHeaders,
+      Authorization: token,
+    };
+    return this;
+  }
+
   async run<ResponseData>() {
     try {
       const config = this.createConfig();
