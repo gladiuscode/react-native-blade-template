@@ -83,14 +83,21 @@ class ApiLayer<RequestData> {
     }
   }
 
-  private createConfig(): AxiosRequestConfig {
+  private createConfig(): AxiosRequestConfig<RequestData> {
+    const requestData = this.parseRequestData();
+
     return {
       baseURL: this.baseURL,
       url: this.url,
       method: this.method,
-      data: this.data,
       headers: this.headers,
+      ...requestData,
     };
+  }
+
+  private parseRequestData() {
+    const key = this.method !== 'get' ? 'data' : 'params';
+    return {[key]: this.data};
   }
 }
 
