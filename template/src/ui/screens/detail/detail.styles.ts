@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
-import {StylesBuilder} from '../../../styles/hooks/useStyles.hook';
+import {StylesProviderValue} from '../../../styles/provider/styles.types';
 
-const styles: StylesBuilder = ({colors, fonts}) =>
+const styles = ({colors, fonts}: StylesProviderValue) =>
   StyleSheet.create({
     container: {
       flex: 1,
